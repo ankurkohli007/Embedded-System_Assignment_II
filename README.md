@@ -21,3 +21,14 @@ Applications for embedded systems include hybrid cars, avionics, digital watches
 * The PC sends $MCREF,RPM*, where RPM is a value going from 0 to 1000. The references can come as fast as the baudrate allows. Example: $MCREF,400*
 * The micro sends $MCFBK,CURRENT,TEMP*, where CURRENT is the current value in Amperes and TEMP is the temperature value at 1 Hz. Example: $MCFBK,4.3,22.2*
 
+## Requirements for the Assignment ##
+
+1. execute a control loop at 200 Hz.
+2. the reference speed for the motor is received through UART communications. Setup bau- drate at 9600 bps.
+3. set the voltage to the armature of the DC motor using PWM2H. Assume that the motor spins at 1000 RPM at 5V.
+4. simulate an analog current sensor using AN2 (potentiometer). The sensor outputs 3 V at 0 A, and has a scale of 10 A/V.
+5. send the current and temperature (AN3) feedback through UART at 1 Hz.
+6. Whenever button S6 is pressed, clear the first row and reset the characters received counter.
+7. blink D3 at 1 Hz to show that the program is running correctly.
+8. turn on D4 whenever the current exceeds 15A.
+
