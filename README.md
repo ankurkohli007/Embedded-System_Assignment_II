@@ -281,4 +281,8 @@ void blink_led() {
 }
 ```
 
+## Results
+
+In this section, we will discuss about the results accomplished during the development of the code and real-time implementation on **dsPIC30f4011** board. Figures below, shows the outcomes of the task.
+
 
