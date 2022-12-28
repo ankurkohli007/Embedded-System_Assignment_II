@@ -61,12 +61,12 @@ There are two task as described below:
 **General map function:**
 
 <p align="center">
-     ***output_value = map(input_value, input_minimum_value, input_maximum_value, output_minimum_value, output_maximum_value)***
+     **output_value = map(input_value, input_minimum_value, input_maximum_value, output_minimum_value, output_maximum_value)**
 </p>
 
 **Map function in our case:**
 <p align="center">
-      ***voltage = map (volt, 3, 5, 0, 20)***
+      voltage = map (volt, 3, 5, 0, 20)
 </p>
 After mapping into voltage, using these values and remap to get current values. For current values below are the ranges:
 <p align="center">
@@ -79,7 +79,7 @@ where V = Voltage, A = Ampere
 **Map function for current values:**
 
 <p align="center">
-      ***current = map (AN2, 0, 1023, 0, 5)***
+      current = map (AN2, 0, 1023, 0, 5)
 </p>
 
 Here, current = output value after map function, AN2 = input value from analog pin of the controller, 0 = input minimum value, 1023 = input maximum value, 0 = output minimum value, 5 = output maximum value.
@@ -101,7 +101,7 @@ After receiving the temperature value from AN3 pin mapping these value from -40Â
 
 The aforementioned values were calculated by the dry run of the formula as given below:
 <p align="center">
-    ***Temp = AN3 X Num -40***
+    Temp = AN3 X Num -40
 </p>
 
 where, Temp = Output value, AN3 = Reading analog pin value (temperature) from controller, Num = multiplier and value is 0.161290323.
@@ -109,7 +109,7 @@ where, Temp = Output value, AN3 = Reading analog pin value (temperature) from co
 After this remapping the temperature value into voltage by using the formula:
 
 <p align="center">
-   ***V = map (Temp, -40, 125, 0.1, 1.75)***
+   V = map (Temp, -40, 125, 0.1, 1.75)
 </p>
 
 Here, V = voltage, Temp = input temperature value, -40 = input minimum temperature value, 125 = input maximum temperature value, 0.1 = output minimum value, 1.75 = output maximum value.
