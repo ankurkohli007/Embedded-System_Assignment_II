@@ -32,7 +32,7 @@ Applications for embedded systems include hybrid cars, avionics, digital watches
 7. blink D3 at 1 Hz to show that the program is running correctly.
 8. turn on D4 whenever the current exceeds 15A.
 
-## Scenario of the assignment ##
+## Scenarios of the assignment ##
 
 ### Scenario 1
 
