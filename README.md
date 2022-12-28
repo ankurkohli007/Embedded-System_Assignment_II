@@ -74,6 +74,7 @@ After mapping into voltage, using these values and remap to get current values. 
       4V = 10A <br>
       5V = 20A <br>
 </p>
+
 where V = Voltage, A = Ampere <br>
 
 **Map function for current values:**
