@@ -121,3 +121,30 @@ In this scenario, blinking of LED will takes place when the execution is impleme
 * Blink D3 (LED) at 1 Hz to show that the program is executing correctly.
 * Turning on D4 (LED) whenever the current exceeds 15A.
 
+#### Synchronization of Scenario 1, 2 & 3
+
+For the synchronization of scenario 1, 2 & 3 that will work simultaneously we used Scheduling approach to achieve the desired goal. Scheduling helps to execute multiple task at a time. For this highest frequency task will execute first because this task have the highest priority and vice versa. 
+
+* First count the periods. When the counter is bigger than the threshold it means that the task is active and ready to be executed. Code structure is shown below for the above mentioned statement: 
+
+```c
+void scheduler() {
+int i;
+int executed = 0;
+for (i = 0; i < MAX TASKS; i++) { schedInfo[i]. n++;
+if (schedInfo[i].n >= schedInfo[i].N) { switch(i) {
+case 0:
+task1 ();
+break;
+case 1:
+task2 ();
+break;
+case 2:
+task3 ();
+break;
+... }
+schedInfo[i].n = 0; }
+}
+}
+```
+
