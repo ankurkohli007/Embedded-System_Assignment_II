@@ -32,3 +32,18 @@ Applications for embedded systems include hybrid cars, avionics, digital watches
 7. blink D3 at 1 Hz to show that the program is running correctly.
 8. turn on D4 whenever the current exceeds 15A.
 
+## Scenario of the assignment ##
+
+### Scenario 1
+
+This scenario is divided into two task.
+
+* **Task 1 (PC to Controller):** In this task Motor is control using frequency 200 Hz.
+      <ul>
+      <li>In this task, values were sent from PC (Personal Computer) to microcontroller board using UART.</li>
+      <li>Motor is controlled at a frequency of 200 Hz.</li>
+      <li>Moreover, receive value from UART will save in the circular buffer.</li>
+      <li>After storing values, these values will be decoded by using parser _(parser.zip is already given during the task implementation)_.</li>
+      <li>Decoded value will be the RPM of the motor. This will generate PWM.</li>
+      </ul>
+* **Task 2 (Controller to PC):** In this task, monitoring of analog values at 1 Hz frequency.
