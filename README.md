@@ -61,7 +61,7 @@ There are two task as described below:
 **General map function:**
 
 <p align="center">
-     **output_value = map(input_value, input_minimum_value, input_maximum_value, output_minimum_value, output_maximum_value)**
+     output_value = map(input_value, input_minimum_value, input_maximum_value, output_minimum_value, output_maximum_value)
 </p>
 
 **Map function in our case:**
