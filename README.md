@@ -101,7 +101,7 @@ After receiving the temperature value from AN3 pin mapping these value from -40Â
 
 The aforementioned values were calculated by the dry run of the formula as given below:
 <p align="center">
-    _ **Temp = AN3 X Num -40**_
+    _**Temp = AN3 X Num -40**_
 </p>
 
 where, Temp = Output value, AN3 = Reading analog pin value (temperature) from controller, Num = multiplier and value is 0.161290323.
@@ -109,7 +109,7 @@ where, Temp = Output value, AN3 = Reading analog pin value (temperature) from co
 After this remapping the temperature value into voltage by using the formula:
 
 <p align="center">
-    _ **V = map (Temp, -40, 125, 0.1, 1.75)**_
+   _ **V = map (Temp, -40, 125, 0.1, 1.75)**_
 </p>
 
 Here, V = voltage, Temp = input temperature value, -40 = input minimum temperature value, 125 = input maximum temperature value, 0.1 = output minimum value, 1.75 = output maximum value.
