@@ -52,3 +52,13 @@ This scenario is divided into two task.
       <li>Analog values were converted into digital values using ADC which were received on PC.</li>
       <li>Analog input values are current, temperature, at 1 Hz frequency.</li>
       </ul>
+### Scenario 2
+
+There are two task as described below:
+
+* **Task 1:** In this task, reads a value from the potentiometer AN2 pin. These value will range from 0 to 1023. Now, these values were mapped into voltage and current. For voltage we used map function as given below:
+
+<p align="center">
+      **General map function:** output_value = map(input_value, input_minimum_value, input_maximum_value, output_minimum_value, output_maximum_value)
+</p>
+
