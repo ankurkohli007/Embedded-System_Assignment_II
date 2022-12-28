@@ -288,6 +288,30 @@ In this section, we will discuss about the results accomplished during the devel
 
 **PC to Controller output:** From PC microcontroller will receive RPM value using UART. The received RPM is to mapped on the value ranges between 0 to 5V to generate duty cycle. As shown in figure below:
 
-![alt text](image11.png)
+![alt text](image22.png)
 
 The PC sends $MCREF,RPM*, where RPM is a value going from 0 to 1000. The references can come as fast as the baudrate allows. As shown in figure above.
+
+![alt text](image11.png)
+
+The figure above shows, when we gave the maximum RPM to the motor it shows the the Voltage at 5V and PDC2 at 26614.
+
+The figure below highlights that when we gave the minimum RPM to the motor it shows the the Voltage at 0V
+and PDC2 at 0.
+
+![alt text](image12.png)
+
+**Controller to PC output:** From microcontroller we receive potentiomemter and tempera- ture values ranges between 0 to 1023. These raw values further converted in volts to generate current and temperature values in degree Celsius respectively. As shown in figure below:
+
+![alt text](image21.png)
+
+The micro sends $MCFBK,CURRENT,TEMP*, where CURRENT is the current value in Amperes and TEMP is the temperature value at 1 Hz. As shown in figure above.
+
+## Conclusion
+
+The main objective of this assignment is to understand the concept of timers, interrupts, UART, SPI, parser, ADC, PWM, Scheduling and so on. By using the same we achieve the goal of the assign task. We able to receive data from PC to Controller and also from Controller to PC as shown and discussed under Result & Discussion section.
+
+
+
+
+
