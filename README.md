@@ -128,23 +128,31 @@ For the synchronization of scenario 1, 2 & 3 that will work simultaneously we us
 * First count the periods. When the counter is bigger than the threshold it means that the task is active and ready to be executed. Code structure is shown below for the above mentioned statement: 
 
 ```c
-void scheduler() {
+void scheduler() 
+{
 int i;
 int executed = 0;
-for (i = 0; i < MAX TASKS; i++) { schedInfo[i]. n++;
-if (schedInfo[i].n >= schedInfo[i].N) { switch(i) {
-case 0:
-task1 ();
-break;
-case 1:
-task2 ();
-break;
-case 2:
-task3 ();
-break;
-... }
-schedInfo[i].n = 0; }
-}
+for (i = 0; i < MAX TASKS; i++) 
+  { 
+   schedInfo[i]. n++;
+    if (schedInfo[i].n >= schedInfo[i].N) 
+      { 
+       switch(i) 
+        {
+         case 0:
+         task1 ();
+         break;
+         case 1:
+         task2 ();
+         break;
+         case 2:
+         task3 ();
+         break;
+         ... 
+        }
+     schedInfo[i].n = 0; 
+      }
+  }
 }
 ```
 
