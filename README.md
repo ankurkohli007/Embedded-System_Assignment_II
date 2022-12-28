@@ -47,3 +47,8 @@ This scenario is divided into two task.
       <li>Decoded value will be the RPM of the motor. This will generate PWM.</li>
       </ul>
 * **Task 2 (Controller to PC):** In this task, monitoring of analog values at 1 Hz frequency.
+      <ul>
+      <li>In this task, values were received from microcontroller to PC. On microcontroller, there were enormous analog pins to receive analog data from   pins such as temperature sensor, potentiometer, and so on.</li>
+      <li>Analog values were converted into digital values using ADC which were received on PC.</li>
+      <li>Analog input values are current, temperature, at 1 Hz frequency.</li>
+      </ul>
