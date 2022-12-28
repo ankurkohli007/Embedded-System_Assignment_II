@@ -130,9 +130,9 @@ For the synchronization of scenario 1, 2 & 3 that will work simultaneously we us
 ```c
 void scheduler() 
 {
-int i;
-int executed = 0;
-for (i = 0; i < MAX TASKS; i++) 
+ int i;
+ int executed = 0;
+ for (i = 0; i < MAX TASKS; i++) 
   { 
    schedInfo[i]. n++;
     if (schedInfo[i].n >= schedInfo[i].N) 
