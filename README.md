@@ -286,4 +286,8 @@ void blink_led() {
 
 In this section, we will discuss about the results accomplished during the development of the code and real-time implementation on **dsPIC30f4011** board. Figures below, shows the outcomes of the task.
 
+**PC to Controller output:** From PC microcontroller will receive RPM value using UART. The received RPM is to mapped on the value ranges between 0 to 5V to generate duty cycle. As shown in figure below:
 
+![alt text](image11.png)
+
+The PC sends $MCREF,RPM*, where RPM is a value going from 0 to 1000. The references can come as fast as the baudrate allows. As shown in figure above.
