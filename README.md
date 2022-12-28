@@ -155,4 +155,130 @@ void scheduler()
   }
 }
 ```
+where, N = number of periods, n = how many times elapsed since the last execution; when it will reach the task let’s say 3 and n = 10 than it means that now we should again execute the task 3.
+
+* All the task which are ready are executed within the same orbit (multi task).
+
+```c
+//**********SCENARIO 01 FUNCTION**********//
+
+void Motor_Control_Task(){
+    // parser initialization
+    parser_state pstate;
+	pstate.state = STATE_DOLLAR;
+	pstate.index_type = 0; 
+	pstate.index_payload = 0;   
+    
+    IEC1bits.U2RXIE = 0;
+    int avl = avl_bytes(&circularBuffer);
+    IEC1bits.U2RXIE = 1;
+ 
+    int count = 0;
+    while (count < avl) {
+        char byte;
+        int rpm;
+        IEC1bits.U2RXIE = 0;
+        read_cb(&circularBuffer, &byte);            //read data from buffer
+        IEC1bits.U2RXIE = 1;
+
+        int ret = parse_byte(&pstate, byte);        //send data to parser to decode it
+
+         if (ret == NEW_MESSAGE) {
+             if (strcmp(pstate.msg_type, "MCREF") == 0) {
+                ret = extract_integer(pstate.msg_payload, &rpm);
+                
+                //ANOTHER WAY TO DO THE ABOVE TASK IS COMMENTED DOWN
+                /*memcpy(string, pstate.msg_payload , pstate.msg_payload);
+                string[(int) pstate.msg_payload] = '\0';
+                write_string_LCD(string); */
+                
+                if (ret == 0) {
+                    if (rpm < 0) {
+                        send_string_uart("INVALID RPM");
+                    } else {
+                        char str[16];
+                        double volt = map(rpm, 0.0, 1000.0, 0.0, 5.0);   //recieved rpm is to map on the value ranges between 0 to 5 volts.
+                        PDC2 = volt * 2 * PTPER;            //generate duty cycle
+
+                        sprintf(str, "Volts = %.2f", volt);
+                        move_cursor_first_row(0);
+                        clear_LCD(0);
+                        move_cursor_first_row(0);
+                        write_string_LCD(str);
+
+                        sprintf(str, "PDC2 = %d", PDC2);
+                        move_cursor_second_row(0);
+                        clear_LCD(1);
+                        move_cursor_second_row(0);
+                        write_string_LCD(str);
+
+                        //send_string_uart("OK");
+                    }
+                } //else {
+                   //send_string_uart("ERROR IN PAYLOAD"); }           
+             }
+        }
+        else {
+            send_string_uart("  NO MESSAGE RECEIVED  ");
+            }
+        count++;
+    }
+}
+
+//**********SCENARIO 02 FUNCTION**********//
+
+void ADC_Task(){        
+    char str[16];
+    double volts = 0.0, current = 0.0, temp = 0.0, mVolts = 0.0;        //initialization of all variables
+    LATBbits.LATB1 = 0;         //set D4 low
+    
+    ADCON1bits.SAMP = 1; // start sampling
+    while(!ADCON1bits.DONE);
+    unsigned int AN2 = ADCBUF0;
+    unsigned int AN3 = ADCBUF1;
+    
+    //Potentiometer Resistor (AN2) Value
+    volts = 5.0 * (AN2/1023.0);     //convert in volts
+    if(volts >= 3.0){               //check if the voltage is greater than 3 then current value should start increasing
+        current = map(volts,3,5,0,20);
+        
+        /***SUBTASK 01***/ 
+        //turn on D4 whenever the current exceeds 15 A.
+        if (current >= 15)          
+        {
+            LATBbits.LATB1 = !LATBbits.LATB1;
+        } else{
+            LATBbits.LATB1 = 0;
+        }
+    } else{
+            current = 0;
+        }
+    
+    //Temperature Sensor (AN3) Value
+    temp = AN3 * 0.161290323 - 40;         //temperature range between -40c - 125c
+    mVolts = map(temp,-40, 125, 0.1, 1.75);
+    
+    sprintf(str, "$MCFBK,%.1f,%.1f*",current,temp);
+    send_string_uart(str);
+    
+    //CHECK VALUES ON LCD
+/*  sprintf(str, "V=%.1fV,Curr=%.1fA", volts, current);
+    move_cursor_first_row(0);
+    clear_LCD(0);
+    move_cursor_first_row(0);
+    write_string_LCD(str);
+    sprintf(str, "T=%.1f C,V=%.1f mV", temp, mVolts);
+    move_cursor_second_row(0);
+    clear_LCD(1);
+    move_cursor_second_row(0);
+    write_string_LCD(str);    */
+}
+
+//**********SCENARIO 03 FUNCTION**********//
+
+void blink_led() {
+    LATBbits.LATB0 = !LATBbits.LATB0;       //Toggle LED D3
+}
+```
+
 
