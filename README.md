@@ -74,3 +74,28 @@ After mapping into voltage, using these values and remap to get current values. 
       4V = 10A <br>
       5V = 20A <br>
 </p>
+where V = Voltage, A = Ampere
+
+**Map function for current values:**
+
+<p align="center">
+      **_current = map (AN2, 0, 1023, 0, 5)_**
+</p>
+
+Here, current = output value after map function, AN2 = input value from analog pin of the controller, 0 = input minimum value, 1023 = input maximum value, 0 = output minimum value, 5 = output maximum value.
+
+**Task 2:** This task will read temperature value from AN3 pin of controller board. This tem- perature value will ranges from 0 to 1023.
+
+Below are the Temperature senor specifications:
+
+* Temperature sensor, U5, is a -40°C to +125°C linear output TC1047A connected to analog channel AN3 of the dsPIC30F device through header H10.
+* The output of the temperature sensor is fed directly to the dsPICDSC device.
+* The output voltage range for the TC1047A is typically 750 mV at +25°C.
+* The TC1047A exhibits a typical 10 mV/C voltage slope.
+
+After receiving the temperature value from AN3 pin mapping these value from -40°C to +125°C in the form of voltage. For temperature values below are the ranges:
+
+<p align="center">
+      0.1V = -40°C <br> 0.5V = 0°C <br> 0.75V = 25°C <br> 1.75V = +125°C<br>
+</p>
+
