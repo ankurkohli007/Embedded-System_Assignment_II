@@ -99,3 +99,25 @@ After receiving the temperature value from AN3 pin mapping these value from -40�
       0.1V = -40°C <br> 0.5V = 0°C <br> 0.75V = 25°C <br> 1.75V = +125°C<br>
 </p>
 
+The aforementioned values were calculated by the dry run of the formula as given below:
+<p align="center">
+    _ **Temp = AN3 X Num -40**_
+</p>
+
+where, Temp = Output value, AN3 = Reading analog pin value (temperature) from controller, Num = multiplier and value is 0.161290323.
+
+After this remapping the temperature value into voltage by using the formula:
+
+<p align="center">
+    _ **V = map (Temp, -40, 125, 0.1, 1.75)**_
+</p>
+
+Here, V = voltage, Temp = input temperature value, -40 = input minimum temperature value, 125 = input maximum temperature value, 0.1 = output minimum value, 1.75 = output maximum value.
+
+### Scenario 3
+
+In this scenario, blinking of LED will takes place when the execution is implemented and running successfully.
+
+* Blink D3 (LED) at 1 Hz to show that the program is executing correctly.
+* Turning on D4 (LED) whenever the current exceeds 15A.
+
