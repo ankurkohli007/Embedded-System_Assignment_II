@@ -61,6 +61,16 @@ There are two task as described below:
 **General map function:**
 
 <p align="center">
-      output_value = map(input_value, input_minimum_value, input_maximum_value, output_minimum_value, output_maximum_value)
+     ** _output_value = map(input_value, input_minimum_value, input_maximum_value, output_minimum_value, output_maximum_value)_**
 </p>
 
+**Map function in our case:**
+<p align="center">
+      **_voltage = map (volt, 3, 5, 0, 20)_**
+</p>
+After mapping into voltage, using these values and remap to get current values. For current values below are the ranges:
+<p align="center">
+      3V = 0A <br> 
+      4V = 10A <br>
+      5V = 20A <br>
+</p>
