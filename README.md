@@ -85,7 +85,7 @@ where V = Voltage, A = Ampere <br>
 
 Here, current = output value after map function, AN2 = input value from analog pin of the controller, 0 = input minimum value, 1023 = input maximum value, 0 = output minimum value, 5 = output maximum value.
 
-**Task 2:** This task will read temperature value from AN3 pin of controller board. This tem- perature value will ranges from 0 to 1023.
+* **Task 2:** This task will read temperature value from AN3 pin of controller board. This tem- perature value will ranges from 0 to 1023.
 
 Below are the Temperature senor specifications:
 
