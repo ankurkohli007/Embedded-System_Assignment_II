@@ -58,17 +58,14 @@ There are two task as described below:
 
 * **Task 1:** In this task, reads a value from the potentiometer AN2 pin. These value will range from 0 to 1023. Now, these values were mapped into voltage and current. For voltage we used map function as given below:
 
-<ul>
-<li>**General map function:**</li>
-</ul>
+**General map function:**
 
 <p align="center">
      output_value = map(input_value, input_minimum_value, input_maximum_value, output_minimum_value, output_maximum_value)
 </p>
 
-<ul>
-<li>**Map function in our case:**</li>
-</ul>
+**Map function in our case:**
+
 <p align="center">
       voltage = map (volt, 3, 5, 0, 20)
 </p>
